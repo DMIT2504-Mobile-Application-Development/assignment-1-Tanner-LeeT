@@ -97,4 +97,20 @@ class CurrentWeather {
     return 'City: $_city, Description: $_description, Current Temperature: $_currentTemp, Current Time: $_currentTime, Sunrise: $_sunrise, Sunset: $_sunset';
   }
 
+  // Factory constructor
+  factory CurrentWeather.fromOpenWeatherData(dynamic data) {
+    try {
+      return CurrentWeather(
+        city: data['name'],
+        description: data['weather'][0]['description'],
+        currentTemp: (data['main']['temp'] as num).toDouble(),
+        currentTime: DateTime.fromMillisecondsSinceEpoch(data['dt'] * 1000),
+        sunrise: DateTime.fromMillisecondsSinceEpoch(data['sys']['sunrise'] * 1000),
+        sunset: DateTime.fromMillisecondsSinceEpoch(data['sys']['sunset'] * 1000),
+      );
+    } catch (e) {
+      throw Exception('Error parsing weather data: $e');
+    }
+  }
+
 }
