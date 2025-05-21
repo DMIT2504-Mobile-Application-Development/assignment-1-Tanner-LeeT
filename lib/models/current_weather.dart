@@ -69,4 +69,25 @@ class CurrentWeather {
     return a.year == b.year && a.month == b.month && a.day == b.day;
   }
 
+  // Constructor
+  CurrentWeather({
+    required String city,
+    required String description,
+    required double currentTemp,
+    required DateTime currentTime,
+    required DateTime sunrise,
+    required DateTime sunset,
+  })  : _city = '',
+        _description = '',
+        _currentTemp = 0,
+        _currentTime = currentTime,
+        _sunrise = sunrise,
+        _sunset = sunset {
+    this.city = city;
+    this.description = description;
+    this.currentTemp = currentTemp;
+    this.currentTime = currentTime;
+    this.sunrise = sunrise;
+    this.sunset = sunset;
+  }
 }
