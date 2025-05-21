@@ -90,4 +90,11 @@ class CurrentWeather {
     this.sunrise = sunrise;
     this.sunset = sunset;
   }
+
+  // String override
+  @override
+  String toString() {
+    return 'City: $_city, Description: $_description, Current Temperature: $_currentTemp, Current Time: $_currentTime, Sunrise: $_sunrise, Sunset: $_sunset';
+  }
+
 }
