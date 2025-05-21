@@ -104,9 +104,9 @@ class CurrentWeather {
         city: data['name'],
         description: data['weather'][0]['description'],
         currentTemp: (data['main']['temp'] as num).toDouble(),
-        currentTime: DateTime.fromMillisecondsSinceEpoch(data['dt'] * 1000),
-        sunrise: DateTime.fromMillisecondsSinceEpoch(data['sys']['sunrise'] * 1000),
-        sunset: DateTime.fromMillisecondsSinceEpoch(data['sys']['sunset'] * 1000),
+        currentTime: DateTime.fromMillisecondsSinceEpoch((data['dt'] * 1000).toInt()),
+        sunrise: DateTime.fromMillisecondsSinceEpoch((data['sys']['sunrise'] * 1000).toInt()),
+        sunset: DateTime.fromMillisecondsSinceEpoch((data['sys']['sunset'] * 1000).toInt()),
       );
     } catch (e) {
       throw Exception('Error parsing weather data: $e');
